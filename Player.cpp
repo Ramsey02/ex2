@@ -3,62 +3,62 @@
 using namespace std;
 
 
-Player::Player(const char* playerName,int max_HP,int playerForce) : name(playerName),maxHP(max_HP),force(playerForce),
-                                                                    level(MIN_LEVEL),coins(MIN_COINS),HP(maxHP) {}
+Player::Player(const char* playerName,int max_HP,int playerForce) : m_name(playerName),m_maxHP(max_HP),m_force(playerForce),
+                                                                    m_level(MIN_LEVEL),m_coins(MIN_COINS),m_HP(m_maxHP) {}
 
 void Player::printInfo() const
 {
-    printPlayerInfo(name.data(),level,force,HP,coins);
+    printPlayerInfo(m_name.data(),m_level,m_force,m_HP,m_coins);
 }
 // CHECK
 void Player::levelUp()
 {
-    if (level<10)
+    if (m_level<10)
     {
-        level++;
+        m_level++;
     }
 }
 
 int Player::getLevel() const
 {
-    return level;
+    return m_level;
 
 }
 
 void Player::buff(int addForce)
 {
-    force+=addForce;
+    m_force+=addForce;
 }
 
 void Player::heal(int addHeal)
 {
-    if (HP+addHeal>maxHP)
+    if (m_HP+addHeal>m_maxHP)
     {
-        HP=maxHP;
+        m_HP=m_maxHP;
     }
     else
     if(addHeal>0)
     {
-        HP+=addHeal;
+        m_HP+=addHeal;
     }
 }
 
 void Player::damage(int damageHeal)
 {
-    if (damageHeal>HP)
+    if (damageHeal>m_HP)
     {
-        HP=0;
+        m_HP=0;
     }
     else
     if(damageHeal>0)
     {
-        HP=HP-damageHeal;
+        m_HP=m_HP-damageHeal;
     }
 }
 
 bool Player::isKnockedOut() const
 {
-    if(HP==0)
+    if(m_HP==0)
     {
         return true;
     }
@@ -67,24 +67,24 @@ bool Player::isKnockedOut() const
 
 void Player::addCoins(int coinsToAdd)
 {
-    coins+=coinsToAdd;
+    m_coins+=coinsToAdd;
 }
 
 
 bool Player::pay(int payAmount)
 {
-    if(payAmount>coins)
+    if(payAmount>m_coins)
     {
         return false;
     }
-    coins=coins-payAmount;
+    m_coins=m_coins-payAmount;
     return true;
 
 }
 
 int Player::getAttackStrength() const
 {
-    return force+level;
+    return m_force+m_level;
 }
 
 Player& Player::operator=(const Player& player1)
@@ -92,12 +92,12 @@ Player& Player::operator=(const Player& player1)
     if(this==&player1){
         return *this;
     }
-    name=player1.name;
-    level=player1.level;
-    force=player1.force;
-    maxHP=player1.maxHP;
-    HP=player1.HP;
-    coins=player1.coins;
+    m_name=player1.m_name;
+    m_level=player1.m_level;
+    m_force=player1.m_force;
+    m_maxHP=player1.m_maxHP;
+    m_HP=player1.m_HP;
+    m_coins=player1.m_coins;
     return *this;
 
 }

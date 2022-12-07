@@ -7,12 +7,12 @@ using namespace std;
 
 class Player
 {
-    string name;//name of the player
-    int maxHP;//max health of the player
-    int force;//force of the player
-    int level;//current level of the player
-    int coins;// the coins that the player have
-    int HP;//current health of the player
+    string m_name;//name of the player
+    int m_maxHP;//max health of the player
+    int m_force;//force of the player
+    int m_level;//current level of the player
+    int m_coins;// the coins that the player have
+    int m_HP;//current health of the player
     static const int DEAFULT_MAX_HP=100;
     static const int DEAFULT_FORCE=5;
     static const int MIN_LEVEL=1;
