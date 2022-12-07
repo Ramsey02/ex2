@@ -31,7 +31,7 @@ void Player::levelUp()
     }
 }
 
-int Player::getLevel()
+int Player::getLevel() const
 {
     return level;
 
@@ -68,7 +68,7 @@ void Player::damage(int damageHeal)
     }
 }
 
-bool Player::isKnockedOut()
+bool Player::isKnockedOut() const
 {
     if(HP==0)
     {
@@ -94,7 +94,7 @@ bool Player::pay(int payAmount)
 
 }
 
-int Player::getAttackStrength()
+int Player::getAttackStrength() const
 {
     return force+level;
 }
