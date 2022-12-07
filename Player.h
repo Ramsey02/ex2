@@ -1,25 +1,27 @@
 #ifndef HW2_PLAYER_H
 #define HW2_PLAYER_H
-#define DEAFULT_MAX_HP 100
-#define DEAFULT_FORCE 5
-#define MIN_LEVEL 1
-#define MIN_COINS 0
-#include <cstring>
+#include <iostream>
+using namespace std;
+
+
+
 class Player
 {
-    const char* name;//name of the player
+    string name;//name of the player
     int maxHP;//max health of the player
     int force;//force of the player
     int level;//current level of the player
     int coins;// the coins that the player have
     int HP;//current health of the player
-
+    static const int DEAFULT_MAX_HP=100;
+    static const int DEAFULT_FORCE=5;
+    static const int MIN_LEVEL=1;
+    static const int MIN_COINS=0;
 
 
 public:
     Player(const char* playerName,int max_HP=DEAFULT_MAX_HP,int playerForce=DEAFULT_FORCE);//constructor
-    Player(const Player&);//copy constructor
-    ~Player();//destructor
+    Player(const Player&)=default;//copy constructor
 
     void printInfo()const;//printing the player info without changing anything
     void levelUp();// raise the player level
@@ -37,12 +39,5 @@ public:
 
 
 };
-/**
- Allocate new player name
- * @param nameOfPlayer- The player name
- * @param lenght - The lenght of the name
- */
-const char* allocate(const char *nameOfPlayer, int lenght);
-
 
 #endif

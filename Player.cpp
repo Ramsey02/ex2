@@ -1,26 +1,14 @@
-#include "player.h"
-#include <iostream>
+#include "Player.h"
 #include "utilities.h"
 using namespace std;
 
-const char* allocate(const char *nameOfPlayer, int lenght)
-{
-    return strcpy(new char[lenght + 1], nameOfPlayer);
-}
-Player::Player(const char* playerName,int max_HP,int playerForce) : name(allocate(playerName,strlen(playerName))),maxHP(max_HP),force(playerForce),
+
+Player::Player(const char* playerName,int max_HP,int playerForce) : name(playerName),maxHP(max_HP),force(playerForce),
                                                                     level(MIN_LEVEL),coins(MIN_COINS),HP(maxHP) {}
-
-Player::Player(const Player& player2): name(allocate(player2.name,strlen(player2.name))),maxHP(player2.maxHP),force(player2.force),
-                                       level(player2.level),coins(player2.coins),HP(player2.HP){}
-
-Player::~Player()
-{
-    delete []name;
-}
 
 void Player::printInfo() const
 {
-    printPlayerInfo(name,level,force,HP,coins);
+    printPlayerInfo(name.data(),level,force,HP,coins);
 }
 
 void Player::levelUp()
@@ -104,8 +92,7 @@ Player& Player::operator=(const Player& player1)
     if(this==&player1){
         return *this;
     }
-    delete []name;
-    name=allocate(player1.name,strlen(player1.name));
+    name=player1.name;
     level=player1.level;
     force=player1.force;
     maxHP=player1.maxHP;
