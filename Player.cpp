@@ -4,7 +4,19 @@ using namespace std;
 
 
 Player::Player(const char* playerName,int max_HP,int playerForce) : m_name(playerName),m_maxHP(max_HP),m_force(playerForce),
-                                                                    m_level(MIN_LEVEL),m_coins(MIN_COINS),m_HP(m_maxHP) {}
+                                                                    m_level(MIN_LEVEL),m_coins(MIN_COINS),m_HP(m_maxHP) 
+{//edit
+    if (max_HP<0)
+    {
+        m_maxHP=DEAFULT_MAX_HP;
+    }
+    if(playerForce<0)
+    {
+        m_force=DEAFULT_FORCE;
+    }
+
+
+}
 
 void Player::printInfo() const
 {
@@ -27,7 +39,10 @@ int Player::getLevel() const
 
 void Player::buff(int addForce)
 {
+    if(addForce>0)//edit
+    {
     m_force+=addForce;
+    }
 }
 
 void Player::heal(int addHeal)
@@ -67,7 +82,10 @@ bool Player::isKnockedOut() const
 
 void Player::addCoins(int coinsToAdd)
 {
+    if(coinsToAdd>0)//edit
+    {
     m_coins+=coinsToAdd;
+    }
 }
 
 
@@ -77,7 +95,10 @@ bool Player::pay(int payAmount)
     {
         return false;
     }
+    if(payAmount>0)//edit
+    {
     m_coins=m_coins-payAmount;
+    }
     return true;
 
 }

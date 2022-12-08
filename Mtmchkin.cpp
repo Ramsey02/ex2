@@ -41,7 +41,7 @@ void Mtmchkin::playNextCard() {
 }
 
 bool Mtmchkin::isOver() const {
-    if(m_status!=GameStatus::Loss)
+    if(m_status!=GameStatus::MidGame)
     {
         return true;
     }
