@@ -60,7 +60,7 @@ public:
      * Here we are explicitly telling the compiler to use the default methods
     */
     Card(const Card&) = default;
-    ~Card() = default;
+    ~Card() = default;  //!? should we define this?
     Card& operator=(const Card& other) = default;
 
 
