@@ -20,7 +20,7 @@ class Player
 
 
 public:
-    Player(const char* playerName,int max_HP=DEAFULT_MAX_HP,int playerForce=DEAFULT_FORCE);//constructor
+    explicit Player(const char* playerName,int max_HP=DEAFULT_MAX_HP,int playerForce=DEAFULT_FORCE);//constructor
     Player(const Player&)=default;//copy constructor
 
     void printInfo()const;//printing the player info without changing anything
