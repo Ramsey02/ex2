@@ -1,6 +1,7 @@
 #ifndef HW2_PLAYER_H
 #define HW2_PLAYER_H
 #include <iostream>
+
 using namespace std;
 
 
@@ -17,6 +18,8 @@ class Player
     static const int DEAFULT_FORCE=5;
     static const int MIN_LEVEL=1;
     static const int MIN_COINS=0;
+    static const int MAX_LEVEL=10;
+
 
 
 public:

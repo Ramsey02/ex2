@@ -24,16 +24,18 @@ void Card::applyEncounter(Player &player) const
         }
     }
 
-
     if(m_effect==CardType::Heal)
     {
         if(player.pay(m_stats.cost))
+        {
             player.heal(m_stats.heal);
+        }
     }
     if(m_effect==CardType::Buff)
     {
-        if(player.pay(m_stats.cost))
+        if(player.pay(m_stats.cost)){
             player.buff(m_stats.buff);
+        }
     }
     if(m_effect==CardType::Treasure)
     {

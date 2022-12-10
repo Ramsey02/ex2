@@ -25,7 +25,7 @@ void Player::printInfo() const
 // CHECK
 void Player::levelUp()
 {
-    if (m_level<10)
+    if (m_level<MAX_LEVEL)
     {
         m_level++;
     }
