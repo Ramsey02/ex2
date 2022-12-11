@@ -28,7 +28,7 @@ void Mtmchkin::playNextCard() {
         {
             m_status=GameStatus::Loss;
         }
-        if(m_playerName.getLevel()>=MAX_LEVEL)
+        if(m_playerName.getLevel()>=MAXI_LEVEL)
         {
             m_status=GameStatus::Win;
         }

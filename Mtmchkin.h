@@ -69,7 +69,7 @@ private:
     int m_cardLength;
     int m_iteration;
     GameStatus m_status;
-    static const int MAX_LEVEL=10;
+    static const int MAXI_LEVEL=10;
 };
 
 
