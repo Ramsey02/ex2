@@ -30,6 +30,7 @@ void Card::applyEncounter(Player &player) const
         {
             player.heal(m_stats.heal);
         }
+        
     }
     if(m_effect==CardType::Buff)
     {
